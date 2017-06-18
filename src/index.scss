@@ -1,0 +1,35 @@
+$body-color: #cce6ff;
+$main-color: #fff3e6;
+$border-color: #000;
+$text-color: #000;
+
+.center-align {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: $body-color;
+  color: $text-color;
+}
+
+.flashcard {
+  background-color: $main-color;
+  border: 3px solid $border-color;
+  border-radius: 5px;
+  width: 600px;
+  height: 360px;
+  text-align: center;
+  @extend .center-align;
+
+    p {
+      @extend .center-align;
+      font-size: 24px;
+      padding-bottom: 50px;
+    }
+}
