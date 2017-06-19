@@ -10,6 +10,11 @@ export const translateReducer = (state = initState, action) => {
         translationHidden: false,
       })
 
+    case 'TRANSLATE_BACK':
+      return Object.assign({}, state, {
+        translationHidden: true,
+      })
+
       default:
         return state;
   }

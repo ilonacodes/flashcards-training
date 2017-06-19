@@ -3,3 +3,9 @@ export const translateExpression = () => {
     type: 'TRANSLATE_EXPRESSION'
   }
 }
+
+export const translateBack = () => {
+  return {
+    type: 'TRANSLATE_BACK'
+  }
+}

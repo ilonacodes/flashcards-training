@@ -1,9 +1,3 @@
-.center-align, .flashcard, .flashcard p {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-
 body {
   margin: 0;
   padding: 0;
@@ -11,15 +5,40 @@ body {
   background-color: #cce6ff;
   color: #000; }
 
-.flashcard {
-  background-color: #fff3e6;
-  border: 3px solid #000;
-  border-radius: 5px;
+.flashcard-container {
   width: 600px;
   height: 360px;
-  text-align: center; }
-  .flashcard p {
-    font-size: 24px;
-    padding-bottom: 50px; }
+  perspective: 800px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
+  .flashcard-container .flashcard {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.3s;
+    position: absolute; }
+    .flashcard-container .flashcard div {
+      background-color: #fff3e6;
+      border: 3px solid #000;
+      border-radius: 5px;
+      text-align: center;
+      color: #000;
+      position: absolute;
+      font-size: 24px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      display: table; }
+      .flashcard-container .flashcard div span {
+        display: table-cell;
+        vertical-align: middle; }
+    .flashcard-container .flashcard.flipped {
+      transform: rotateY(180deg); }
+    .flashcard-container .flashcard .back {
+      transform: rotateY(180deg); }
 
 /*# sourceMappingURL=index.css.map */
