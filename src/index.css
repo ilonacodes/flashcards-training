@@ -41,4 +41,18 @@ body {
     .flashcard-container .flashcard .back {
       transform: rotateY(180deg); }
 
+@media (max-width: 768px) {
+  body {
+    font-size: 16px; }
+
+  .flashcard-container {
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    height: 200px;
+    position: absolute; }
+    .flashcard-container span {
+      padding: 0 5%;
+      font-size: 20px; } }
+
 /*# sourceMappingURL=index.css.map */
