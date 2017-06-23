@@ -9,3 +9,9 @@ export const translateBack = () => {
     type: 'TRANSLATE_BACK'
   }
 }
+
+export const goToNext = () => {
+  return {
+    type: 'NEXT_FLASHCARD'
+  }
+}

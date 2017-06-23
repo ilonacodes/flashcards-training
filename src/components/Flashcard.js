@@ -1,28 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { translateExpression, translateBack } from '../actions.js';
+import { translateExpression, translateBack, goToNext } from '../actions.js';
 import { flashcardContent } from '../EnEspContent.js';
 import '../index.css';
 
-export const flip = (e) => e.preventDefault()
-
-export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack}) => {
+export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack, goToNext}) => {
 
   const flashcardClassName = translationHidden ? "flashcard" : "flashcard flipped"
 
-  return <div className="flashcard-container">
-    <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
-      <div className="front"><span>{flashcardModel.expression}</span></div>
-      <div className="back"><span>{flashcardModel.translation}</span></div>
+  return <div>
+    <button className="next" onClick={goToNext}>Next</button>
+    <div className="flashcard-container">
+      <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
+        <div className="front"><span>{flashcardModel.expression}</span></div>
+        <div className="back"><span>{flashcardModel.translation}</span></div>
+      </div>
     </div>
   </div>
 }
 
 function mapStateToProps(state) {
   return {
-    flashcardModel: flashcardContent[0],
-    translationHidden: state.translationHidden,
+    flashcardModel: flashcardContent[state.currentFlashcard],
+    translationHidden: state.translate.translationHidden,
   }
 }
 
@@ -38,6 +39,9 @@ function mapDispatchToProps(dispatch) {
   return {
     flip: (translationHidden) => {
       toggleTranslation(dispatch, translationHidden)
+    },
+    goToNext: () => {
+      dispatch(goToNext())
     }
   }
 }
