@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: #e7e4df;
-  color: #444; }
+  color: #555; }
 
 .flashcard-container {
   width: 600px;
@@ -19,13 +19,22 @@ body {
     transform-style: preserve-3d;
     transition: transform 0.3s;
     position: absolute; }
+    .flashcard-container .flashcard .current-language {
+      top: 0;
+      left: 0;
+      margin: 5px 5px;
+      padding: 0;
+      position: absolute;
+      font-size: 12px;
+      opacity: .6;
+      color: #b25d51; }
     .flashcard-container .flashcard div {
       background-color: #fff;
       border: 1px solid #959595;
       box-shadow: 3px 3px 5px #888888;
       border-radius: 10px;
       text-align: center;
-      color: #444;
+      color: #555;
       position: absolute;
       font-size: 24px;
       backface-visibility: hidden;
@@ -56,6 +65,8 @@ body {
     outline: 0 !important; }
   .next:active {
     border-style: none; }
+  .next:hover {
+    opacity: .9; }
 
 @media (max-width: 768px) {
   body {
