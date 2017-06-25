@@ -1,15 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { translateExpression, translateBack, goToNext } from '../actions.js';
+import { translateExpression, translateBack, goToNext, invertTranslation } from '../actions.js';
 import { flashcardContent } from '../EnEspContent.js';
 import '../index.css';
 
-export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack, goToNext}) => {
+export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack, goToNext, invertTranslation}) => {
 
   const flashcardClassName = translationHidden ? "flashcard" : "flashcard flipped"
 
   return <div>
+    <button className="invert-translation" onClick={invertTranslation}>
+    {translationHidden ? "Spanish -> English" : "English -> Spanish"}
+    </button>
     <div className="flashcard-container">
       <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
         <div className="front">
@@ -56,6 +59,9 @@ function mapDispatchToProps(dispatch) {
     },
     goToNext: () => {
       dispatch(goToNext())
+    },
+    invertTranslation: () => {
+      dispatch(invertTranslation())
     }
   }
 }

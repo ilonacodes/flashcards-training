@@ -5,6 +5,23 @@ body {
   background-color: #e7e4df;
   color: #555; }
 
+.invert-translation {
+  position: absolute;
+  background-color: #b25d51;
+  color: #fff;
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  padding: 10px;
+  top: 0;
+  border-style: none; }
+  .invert-translation:focus {
+    outline: 0 !important; }
+  .invert-translation:active {
+    border-style: none; }
+  .invert-translation:hover {
+    opacity: .9; }
+
 .flashcard-container {
   width: 600px;
   height: 360px;

@@ -15,3 +15,9 @@ export const goToNext = () => {
     type: 'NEXT_FLASHCARD'
   }
 }
+
+export const invertTranslation = () => {
+  return {
+    type: 'INVERT_TRANSLATION'
+  }
+}

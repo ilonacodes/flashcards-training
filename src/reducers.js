@@ -1,7 +1,8 @@
 import { flashcardContent } from './EnEspContent';
 
 const initState = {
-  translationHidden: true
+  translationHidden: true,
+  invertedTranslation: false,
 }
 
 export const translateReducer = (state = initState, action) => {
@@ -18,7 +19,15 @@ export const translateReducer = (state = initState, action) => {
       })
 
     case 'NEXT_FLASHCARD':
-        return initState
+      return Object.assign({}, state, {
+        translationHidden: !state.invertedTranslation,
+      })
+
+    case 'INVERT_TRANSLATION':
+      return Object.assign({}, state, {
+        invertedTranslation: !state.invertedTranslation,
+        translationHidden: state.invertedTranslation,
+      })
 
     default:
       return state;
