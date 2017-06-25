@@ -5,13 +5,13 @@ import { translateExpression, translateBack, goToNext, invertTranslation } from 
 import { flashcardContent } from '../EnEspContent.js';
 import '../index.css';
 
-export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack, goToNext, invertTranslation}) => {
+export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, translateBack, goToNext, invertTranslation, invertedTranslation}) => {
 
   const flashcardClassName = translationHidden ? "flashcard" : "flashcard flipped"
 
   return <div>
     <button className="invert-translation" onClick={invertTranslation}>
-    {translationHidden ? "Spanish > English" : "English > Spanish"}
+    {invertedTranslation ? "English > Spanish" : "Spanish > English"}
     </button>
     <div className="flashcard-container">
       <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
@@ -41,6 +41,7 @@ function mapStateToProps(state) {
   return {
     flashcardModel: flashcardContent[state.currentFlashcard],
     translationHidden: state.translate.translationHidden,
+    invertedTranslation: state.translate.invertedTranslation,
   }
 }
 
