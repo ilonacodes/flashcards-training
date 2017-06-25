@@ -11,7 +11,7 @@ export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, 
 
   return <div>
     <button className="invert-translation" onClick={invertTranslation}>
-    {invertedTranslation ? "English > Spanish" : "Spanish > English"}
+    {invertedTranslation ? "English → Spanish" : "Spanish → English"}
     </button>
     <div className="flashcard-container">
       <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
