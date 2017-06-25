@@ -17,6 +17,9 @@ export const translateReducer = (state = initState, action) => {
         translationHidden: true,
       })
 
+    case 'NEXT_FLASHCARD':
+        return initState
+
     default:
       return state;
   }

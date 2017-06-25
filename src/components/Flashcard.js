@@ -10,13 +10,13 @@ export const FlashcardPresentation = ({flashcardModel, flip, translationHidden, 
   const flashcardClassName = translationHidden ? "flashcard" : "flashcard flipped"
 
   return <div>
-    <button className="next" onClick={goToNext}>Next</button>
     <div className="flashcard-container">
       <div className={flashcardClassName} onClick={e => flip(translationHidden)}>
         <div className="front"><span>{flashcardModel.expression}</span></div>
         <div className="back"><span>{flashcardModel.translation}</span></div>
       </div>
     </div>
+    <button className="next" onClick={goToNext}>Next Card</button>
   </div>
 }
 

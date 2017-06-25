@@ -1,12 +1,13 @@
-$body-color: #cce6ff;
-$main-color: #fff3e6;
-$border-color: #000;
-$text-color: #000;
+$body-color: #e7e4df;
+$main-color: #fff;
+$border-color: #626262;
+$text-color: #444;
+$next: #b25d51;
 
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-color: $body-color;
   color: $text-color;
 }
@@ -32,8 +33,9 @@ body {
 
     div {
       background-color: $main-color;
-      border: 3px solid $border-color;
-      border-radius: 5px;
+      border: 1px solid lighten($border-color, 20%);
+      box-shadow: 3px 3px 5px #888888;
+      border-radius: 10px;
       text-align: center;
       color: $text-color;
 
@@ -65,7 +67,22 @@ body {
 
 .next {
   position: absolute;
+  background-color: $next;
+  color: $main-color;
+  display: block;
+  width: 100%;
+  font-size: 32px;
+  padding: 10px;
   bottom: 0;
+  border-style: none;
+
+    &:focus {
+      outline: 0 !important;
+    }
+
+    &:active {
+      border-style: none;
+    }
 }
 
 @media (max-width: 768px) {
