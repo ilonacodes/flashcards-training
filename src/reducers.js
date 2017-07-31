@@ -1,48 +1,53 @@
-import { flashcardContent } from './EnEspContent';
+import {flashcardContent} from "./EnEspContent";
 
 const initState = {
-  translationHidden: true,
-  invertedTranslation: false,
+    translationHidden: true,
+    invertedTranslation: false,
 }
 
 export const translateReducer = (state = initState, action) => {
-  console.log(state, action);
-  switch (action.type) {
-    case 'TRANSLATE_EXPRESSION':
-      return Object.assign({}, state, {
-        translationHidden: false,
-      })
+    console.log(state, action);
+    switch (action.type) {
+        case 'TRANSLATE_EXPRESSION':
+            return Object.assign({}, state, {
+                translationHidden: false,
+            })
 
-    case 'TRANSLATE_BACK':
-      return Object.assign({}, state, {
-        translationHidden: true,
-      })
+        case 'TRANSLATE_BACK':
+            return Object.assign({}, state, {
+                translationHidden: true,
+            })
 
-    case 'NEXT_FLASHCARD':
-      return Object.assign({}, state, {
-        translationHidden: !state.invertedTranslation,
-      })
+        case 'NEXT_FLASHCARD':
+            return Object.assign({}, state, {
+                translationHidden: !state.invertedTranslation,
+            })
 
-    case 'INVERT_TRANSLATION':
-      return Object.assign({}, state, {
-        invertedTranslation: !state.invertedTranslation,
-        translationHidden: state.invertedTranslation,
-      })
+        case 'INVERT_TRANSLATION':
+            return Object.assign({}, state, {
+                invertedTranslation: !state.invertedTranslation,
+                translationHidden: state.invertedTranslation,
+            })
 
-    default:
-      return state;
-  }
+        default:
+            return state;
+    }
 }
 
-export const currentFlashcardReducer = (state = 0, action) => {
-  switch(action.type) {
-    case 'NEXT_FLASHCARD':
-    if (state < flashcardContent.length - 1) {
-      return state + 1;
-    }
-    return 0;
+const getRandomInt = (min, max) => {
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
 
-    default:
-      return state;
-  }
+const getRandomFlashcard = () => {
+    return getRandomInt(0, flashcardContent.length - 1)
+}
+
+export const currentFlashcardReducer = (state = getRandomFlashcard(), action) => {
+    switch (action.type) {
+        case 'NEXT_FLASHCARD':
+            return getRandomFlashcard()
+
+        default:
+            return state;
+    }
 }
